@@ -36,7 +36,9 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(200).send('Welcome to bourassa\' REST API home');
+  masterKey = process.env.MASTER_KEY;
+  appID = process.env.APP_ID
+  res.status(200).send('Welcome to bourassa\' REST API home mk:'+masterKey+ "appID :"+appID);
 });
 
 // There will be a test page available on the /test path of your server url
