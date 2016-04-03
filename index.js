@@ -36,8 +36,8 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  masterKey = process.env.MASTER_KEY;
-  appID = process.env.APP_ID
+  masterKey = api.MASTER_KEY;
+  appID = api.APP_ID;
   res.status(200).send('Welcome to bourassa\' REST API home mk:'+masterKey+ "appID :"+appID);
 });
 
