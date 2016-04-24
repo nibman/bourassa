@@ -43,6 +43,7 @@ app.get('/', function(req, res) {
   console.log(process.env.APP_ID);
   console.log(process.env.MASTER_KEY);
   console.log(process.env.SERVER_URL);
+  console.log(process.env.TEST_VAR);
 
   res.status(200).send('Welcome to bourassa\' REST API home mk:'+masterKey+ "appID :"+appID);
 });
