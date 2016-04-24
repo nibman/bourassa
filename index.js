@@ -38,6 +38,12 @@ app.use(mountPath, api);
 app.get('/', function(req, res) {
   masterKey = api.MASTER_KEY;
   appID = api.APP_ID;
+
+  for (var e in process.env)
+  {
+    console.log(e + " = "+process.env[e]);
+  }
+  
   res.status(200).send('Welcome to bourassa\' REST API home mk:'+masterKey+ "appID :"+appID);
 });
 
