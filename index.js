@@ -38,11 +38,11 @@ app.use(mountPath, api);
 app.get('/', function(req, res) {
   masterKey = api.MASTER_KEY;
   appID = api.APP_ID;
-  console.log("logging api ");
-  for (var e in api)
-  {
-    console.log(e + " = "+api[e]);
-  }
+
+  console.log(process.env.MONGOLAB_URI);
+  console.log(process.env.APP_ID);
+  console.log(process.env.MASTER_KEY);
+  console.log(process.env.SERVER_URL);
 
   res.status(200).send('Welcome to bourassa\' REST API home mk:'+masterKey+ "appID :"+appID);
 });
