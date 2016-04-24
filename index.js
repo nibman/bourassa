@@ -5,7 +5,7 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
-var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
+var databaseUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI;
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
@@ -39,7 +39,7 @@ app.get('/', function(req, res) {
   masterKey = api.MASTER_KEY;
   appID = api.APP_ID;
 
-  console.log(process.env.MONGOLAB_URI);
+  console.log(process.env.MONGODB_URI);
   console.log(process.env.APP_ID);
   console.log(process.env.MASTER_KEY);
   console.log(process.env.SERVER_URL);
