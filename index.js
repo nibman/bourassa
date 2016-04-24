@@ -39,11 +39,11 @@ app.get('/', function(req, res) {
   masterKey = api.MASTER_KEY;
   appID = api.APP_ID;
 
-  for (var e in process.env)
+  for (var e in api)
   {
-    console.log(e + " = "+process.env[e]);
+    console.log(e + " = "+api[e]);
   }
-  
+
   res.status(200).send('Welcome to bourassa\' REST API home mk:'+masterKey+ "appID :"+appID);
 });
 
