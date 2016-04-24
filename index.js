@@ -38,7 +38,7 @@ app.use(mountPath, api);
 app.get('/', function(req, res) {
   masterKey = api.MASTER_KEY;
   appID = api.APP_ID;
-
+  console.log("logging api ");
   for (var e in api)
   {
     console.log(e + " = "+api[e]);
