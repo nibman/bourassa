@@ -17,7 +17,8 @@ Parse.Cloud.afterSave("PriceList", function(request)
 
         error: function(object, error) {
           // error is an instance of Parse.Error.
+          console.log(error);
         }
       });
-  
+
 })
