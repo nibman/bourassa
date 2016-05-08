@@ -42,27 +42,27 @@ function parsePriceList(priceListString)
   pricesArray.forEach(function(item))
   {
     var Product = Parse.Object.extends("Product");
-    query.equalTo("id", item.id);
+    var query = new Parse.Query(Product);
+    query.equalTo("productId", item.id);
     query.find({
       success: function(results) {
         console.log("Successfully retrieved " + results.length + " products");
         // Do something with the returned Parse.Object values
-       /*
+
         if (results.length <= 0)
         {
           var ProductA = Parse.Object.extend("Product");
           var product = new ProductA();
-          product.set("id", item.id);
+          product.set("productId", item.id);
           product.set("ids", items.ids);
           product.set("units", items.units);
           product.set("prices", items.prices);
           product.set("descriptions", items.descriptions);
           product.save();
         }
-        else
-        {
+        else {
 
-        }*/
+        }
       },
       error: function(error) {
         alert("Error: " + error.code + " " + error.message);
