@@ -16,6 +16,12 @@ Parse.Cloud.afterSave("PriceList", function(request)
         success: function(object) {
           var url = object.get("url");
           console.log("PriceList fetched "+url);
+          Parse.Cloud.httpRequest({ url:url }).then(function(response)
+          {
+              // The file contents are in response.buffer.
+              console.log(response.buffer);
+
+          });
         },
         error: function(object, error) {
           // error is an instance of Parse.Error.
