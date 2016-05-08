@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ebbc55c2-45e1-473b-b07a-c0aec13d8ecf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cloud/main.js" afterPath="$PROJECT_DIR$/cloud/main.js" />
-    </list>
+    <list default="true" id="ebbc55c2-45e1-473b-b07a-c0aec13d8ecf" name="Default" comment="" />
     <ignored path="bourassa.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -359,12 +357,12 @@
       <workItem from="1461527618877" duration="2851000" />
       <workItem from="1461617954976" duration="515000" />
       <workItem from="1462394707905" duration="600000" />
-      <workItem from="1462646086787" duration="6451000" />
+      <workItem from="1462646086787" duration="6504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16384000" />
+    <option name="totallyTimeSpent" value="16437000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
