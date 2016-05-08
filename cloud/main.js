@@ -12,13 +12,11 @@ Parse.Cloud.afterSave("PriceList", function(request)
   query.get(request.object.id,
       {
         success: function(object) {
-          console.log(object);
+          console.log("PriceList fetched "+object);
         },
-
         error: function(object, error) {
           // error is an instance of Parse.Error.
           console.log(error);
         }
       });
-
 })
