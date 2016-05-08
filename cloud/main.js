@@ -42,11 +42,12 @@ function parsePriceList(priceListString)
   pricesArray.forEach(function(item))
   {
     var Product = Parse.Object.extends("Product");
-    query.equalTo("numeroProduit", item.id);
+    query.equalTo("id", item.id);
     query.find({
       success: function(results) {
         console.log("Successfully retrieved " + results.length + " products");
         // Do something with the returned Parse.Object values
+       /*
         if (results.length <= 0)
         {
           var ProductA = Parse.Object.extend("Product");
@@ -61,7 +62,7 @@ function parsePriceList(priceListString)
         else
         {
 
-        }
+        }*/
       },
       error: function(error) {
         alert("Error: " + error.code + " " + error.message);
