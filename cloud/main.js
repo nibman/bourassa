@@ -38,8 +38,8 @@ function parsePriceList(priceListString)
 {
   var json = JSON.parse(priceListString);
   var pricesArray = json.priceList;
-  console.log(pricesArray);
-  
+  // console.log(pricesArray);
+
   pricesArray.forEach(function(item)
     {
       console.log(item);
