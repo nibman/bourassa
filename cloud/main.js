@@ -62,13 +62,14 @@ function parsePriceList(priceListString)
               product.set("descriptions", items.descriptions);
               product.save();
             }
-            else {
+            else
+            {
 
             }
           },
           error: function(error)
           {
-            alert("Error: " + error.code + " " + error.message);
+            console.log("Error: " + error.code + " " + error.message);
           }
         });
     });
