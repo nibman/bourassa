@@ -1,3 +1,5 @@
+var priceListURL;
+
 
 Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
@@ -16,13 +18,11 @@ Parse.Cloud.afterSave("PriceList", function(request)
         success: function(object) {
           var url = object.get("url");
           console.log("PriceList fetched "+url);
+          priceListURL = url;
           Parse.Cloud.httpRequest({ url:url }).then(function(response)
           {
               // The file contents are in response.buffer.
-
-            var b64 = response.buffer.toString();
-
-            console.log(b64);
+            parsePriceList(response.buffer.toString());
 
           });
         },
@@ -32,3 +32,11 @@ Parse.Cloud.afterSave("PriceList", function(request)
         }
       });
 })
+
+
+
+function parsePriceList(priceListString)
+{
+  var json = JSON.parse(priceListString);
+  console.log(json);
+}
