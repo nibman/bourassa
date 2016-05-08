@@ -38,5 +38,9 @@ Parse.Cloud.afterSave("PriceList", function(request)
 function parsePriceList(priceListString)
 {
   var json = JSON.parse(priceListString);
-  console.log(json);
+  var pricesArray = json.priceList;
+  for (var i=0; i<pricesArray.length; ++i)
+  {
+    console.log(pricesArray[i]);
+  }
 }
