@@ -14,11 +14,8 @@ Parse.Cloud.afterSave("PriceList", function(request)
   query.get(request.object.id,
       {
         success: function(object) {
-          console.log("PriceList fetched "+object);
-          for (var e in object)
-          {
-            console.log(e + " = "+object[e]);
-          }
+          var url = object.get("url");
+          console.log("PriceList fetched "+url);
         },
         error: function(object, error) {
           // error is an instance of Parse.Error.
