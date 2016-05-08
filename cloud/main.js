@@ -39,35 +39,38 @@ function parsePriceList(priceListString)
   var json = JSON.parse(priceListString);
   var pricesArray = json.priceList;
 
-  pricesArray.forEach(function(item))
-  {
-    var Product = Parse.Object.extends("Product");
-    var query = new Parse.Query(Product);
-    query.equalTo("productId", item.id);
-    query.find({
-      success: function(results) {
-        console.log("Successfully retrieved " + results.length + " products");
-        // Do something with the returned Parse.Object values
+  pricesArray.forEach(function(item)
+    {
+      var Product = Parse.Object.extends("Product");
+      var query = new Parse.Query(Product);
+      query.equalTo("productId", item.id);
+      query.find(
+          {
+            success: function(results)
+            {
+              console.log("Successfully retrieved " + results.length + " products");
+            // Do something with the returned Parse.Object values
 
-        if (results.length <= 0)
-        {
-          var ProductA = Parse.Object.extend("Product");
-          var product = new ProductA();
-          product.set("productId", item.id);
-          product.set("ids", items.ids);
-          product.set("units", items.units);
-          product.set("prices", items.prices);
-          product.set("descriptions", items.descriptions);
-          product.save();
-        }
-        else {
+            if (results.length <= 0)
+            {
+              var ProductA = Parse.Object.extend("Product");
+              var product = new ProductA();
+              product.set("productId", item.id);
+              product.set("ids", items.ids);
+              product.set("units", items.units);
+              product.set("prices", items.prices);
+              product.set("descriptions", items.descriptions);
+              product.save();
+            }
+            else {
 
-        }
-      },
-      error: function(error) {
-        alert("Error: " + error.code + " " + error.message);
-      }
+            }
+          },
+          error: function(error)
+          {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
     });
-  }
 
 }
