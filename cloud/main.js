@@ -11,7 +11,7 @@ Parse.Cloud.afterSave("PriceList", function(request)
   console.log(request.object.id);
 
   var PriceList = Parse.Object.extend("PriceList");
-  query = new Parse.Query(PriceList);
+  var query = new Parse.Query(PriceList);
 
   query.get(request.object.id,
       {
@@ -21,13 +21,12 @@ Parse.Cloud.afterSave("PriceList", function(request)
           priceListURL = url;
           Parse.Cloud.httpRequest({ url:url }).then(function(response)
           {
-              // The file contents are in response.buffer.
             parsePriceList(response.buffer.toString());
 
           });
         },
-        error: function(object, error) {
-          // error is an instance of Parse.Error.
+        error: function(object, error)
+        {
           console.log(error);
         }
       });
@@ -39,8 +38,35 @@ function parsePriceList(priceListString)
 {
   var json = JSON.parse(priceListString);
   var pricesArray = json.priceList;
-  for (var i=0; i<pricesArray.length; ++i)
+
+  pricesArray.forEach(function(item))
   {
-    console.log(pricesArray[i]);
+    var Product = Parse.Object.extends("Product");
+    query.equalTo("numeroProduit", item.id);
+    query.find({
+      success: function(results) {
+        console.log("Successfully retrieved " + results.length + " products");
+        // Do something with the returned Parse.Object values
+        if (results.length <= 0)
+        {
+          var ProductA = Parse.Object.extend("Product");
+          var product = new ProductA();
+          product.set("id", item.id);
+          product.set("ids", items.ids);
+          product.set("units", items.units);
+          product.set("prices", items.prices);
+          product.set("descriptions", items.descriptions);
+          product.save();
+        }
+        else
+        {
+
+        }
+      },
+      error: function(error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
   }
+
 }
