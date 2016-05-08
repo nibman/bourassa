@@ -19,7 +19,8 @@ Parse.Cloud.afterSave("PriceList", function(request)
           Parse.Cloud.httpRequest({ url:url }).then(function(response)
           {
               // The file contents are in response.buffer.
-              console.log(response.buffer);
+            var json = response.buffer.toJSON(response.buffer);
+            console.log(json);
 
           });
         },
