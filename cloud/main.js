@@ -44,6 +44,7 @@ function parsePriceList(priceListString)
     {
       console.log(item);
 
+      /*
       var Product = Parse.Object.extends("Product");
       var query = new Parse.Query(Product);
       query.equalTo("productId", item.id);
@@ -75,6 +76,7 @@ function parsePriceList(priceListString)
             console.log("Error: " + error.code + " " + error.message);
           }
         });
+       */
     });
 
 }
