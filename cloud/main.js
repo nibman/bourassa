@@ -39,13 +39,10 @@ function parsePriceList(priceListString)
   var json = JSON.parse(priceListString);
   var pricesArray = json.priceList;
   // console.log(pricesArray);
-
+  var Product = Parse.Object.extends("Product");
   pricesArray.forEach(function(item)
     {
       console.log(item);
-
-
-      var Product = Parse.Object.extends("Product");
       var query = new Parse.Query(Product);
       query.limit(1);
       query.equalTo("productId", item.id);
