@@ -43,8 +43,6 @@ function parsePriceList(priceListString)
 
   var productsArray = [];
 
-
-
   pricesArray.forEach(function(item)
     {
       console.log(item);
