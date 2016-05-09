@@ -49,10 +49,8 @@ function parsePriceList(priceListString)
       var query = new Parse.Query(Product);
       query.limit(1);
       query.equalTo("productId", item.id);
-      query.find(
+      query.find().then(function(results)
           {
-            success: function(results)
-            {
               console.log("Successfully retrieved " + results.length + " products");
             // Do something with the returned Parse.Object values
 
@@ -71,11 +69,10 @@ function parsePriceList(priceListString)
             else
             {
 
-            }*/
-          },
-          error: function(error)
-          {
-            console.log("Error: " + error.code + " " + error.message);
+            }
+            */
+          }).then(function(){
+            console.log("All out ");
           }
         });
 
