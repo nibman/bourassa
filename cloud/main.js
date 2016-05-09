@@ -46,13 +46,7 @@ function parsePriceList(priceListString)
   pricesArray.forEach(function(item)
     {
       console.log(item);
-      var product = new Product();
-      product.set("productId", item.id);
-      product.set("ids", item.ids);
-      product.set("units", item.units);
-      product.set("prices", item.prices);
-      product.set("descriptions", item.descriptions);
-      productsArray.push(product);
+      
 
     });
 
