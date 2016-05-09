@@ -40,38 +40,34 @@ function parsePriceList(priceListString)
   var pricesArray = json.priceList;
   // console.log(pricesArray);
   var Product = Parse.Object.extends("Product");
+
+  var productsArray = [];
+
+
+
   pricesArray.forEach(function(item)
     {
       console.log(item);
-      var query = new Parse.Query(Product);
-      query.limit(1);
-      query.equalTo("productId", item.id);
-      query.find().then(function(results)
-          {
-              console.log("Successfully retrieved " + results.length + " products");
-            // Do something with the returned Parse.Object values
-
-            /*
-            if (results.length <= 0)
-            {
-              var ProductA = Parse.Object.extend("Product");
-              var product = new ProductA();
-              product.set("productId", item.id);
-              product.set("ids", items.ids);
-              product.set("units", items.units);
-              product.set("prices", items.prices);
-              product.set("descriptions", items.descriptions);
-              product.save();
-            }
-            else
-            {
-
-            }
-            */
-          }).then(function() {
-            console.log("All out");
-        });
+      var product = new Product();
+      product.set("productId", item.id);
+      product.set("ids", items.ids);
+      product.set("units", items.units);
+      product.set("prices", items.prices);
+      product.set("descriptions", items.descriptions);
+      productsArray.push(product);
 
     });
 
+  Parse.Object.saveAll(productsArray,
+      {
+        success: function(objs)
+        {
+          console.log("Saved all objects ");
+          console.log(objs);
+        },
+        error: function(error)
+        {
+          console.log(error);
+        }
+      });
 }
