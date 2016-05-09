@@ -71,9 +71,8 @@ function parsePriceList(priceListString)
 
             }
             */
-          }).then(function(){
-            console.log("All out ");
-          }
+          }).then(function() {
+            console.log("All out");
         });
 
     });
