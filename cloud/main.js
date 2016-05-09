@@ -48,10 +48,10 @@ function parsePriceList(priceListString)
       console.log(item);
       var product = new Product();
       product.set("productId", item.id);
-      product.set("ids", items.ids);
-      product.set("units", items.units);
-      product.set("prices", items.prices);
-      product.set("descriptions", items.descriptions);
+      product.set("ids", item.ids);
+      product.set("units", item.units);
+      product.set("prices", item.prices);
+      product.set("descriptions", item.descriptions);
       productsArray.push(product);
 
     });
