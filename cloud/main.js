@@ -41,7 +41,7 @@ function parsePriceList(priceListString)
   var pricesArray = json.priceList;
   console.log(pricesArray.length);
 
-  var Product = Parse.Object.extends("Product");
+  var Product = Parse.Object.extend("Product");
 
   var productsArray = [];
 
