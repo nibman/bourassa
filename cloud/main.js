@@ -21,6 +21,7 @@ Parse.Cloud.afterSave("PriceList", function(request)
           priceListURL = url;
           Parse.Cloud.httpRequest({ url:url }).then(function(response)
           {
+              console.log("parse priceList");
               parsePriceList(response.buffer.toString());
           });
         },
