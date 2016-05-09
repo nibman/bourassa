@@ -21,8 +21,7 @@ Parse.Cloud.afterSave("PriceList", function(request)
           priceListURL = url;
           Parse.Cloud.httpRequest({ url:url }).then(function(response)
           {
-            parsePriceList(response.buffer.toString());
-
+              parsePriceList(response.buffer.toString());
           });
         },
         error: function(object, error)
@@ -36,6 +35,7 @@ Parse.Cloud.afterSave("PriceList", function(request)
 
 function parsePriceList(priceListString)
 {
+  console.log("parse priceList");
   var json = JSON.parse(priceListString);
   var pricesArray = json.priceList;
   // console.log(pricesArray);
@@ -46,8 +46,15 @@ function parsePriceList(priceListString)
   pricesArray.forEach(function(item)
     {
       console.log(item);
-      
-
+      /*
+      var product = new Product();
+      product.set("productId", item.id);
+      product.set("ids", item.ids);
+      product.set("units", item.units);
+      product.set("prices", item.prices);
+      product.set("descriptions", item.descriptions);
+      productsArray.push(product);
+      */
     });
 
   Parse.Object.saveAll(productsArray,
