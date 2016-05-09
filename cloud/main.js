@@ -44,9 +44,10 @@ function parsePriceList(priceListString)
     {
       console.log(item);
 
-      /*
+
       var Product = Parse.Object.extends("Product");
       var query = new Parse.Query(Product);
+      query.limit(1);
       query.equalTo("productId", item.id);
       query.find(
           {
@@ -55,6 +56,7 @@ function parsePriceList(priceListString)
               console.log("Successfully retrieved " + results.length + " products");
             // Do something with the returned Parse.Object values
 
+            /*
             if (results.length <= 0)
             {
               var ProductA = Parse.Object.extend("Product");
@@ -69,14 +71,14 @@ function parsePriceList(priceListString)
             else
             {
 
-            }
+            }*/
           },
           error: function(error)
           {
             console.log("Error: " + error.code + " " + error.message);
           }
         });
-       */
+
     });
 
 }
