@@ -39,7 +39,7 @@ function parsePriceList(priceListString)
   console.log("parse priceList");
   var json = JSON.parse(priceListString);
   var pricesArray = json.priceList;
- // console.log(pricesArray);
+  console.log(pricesArray.length);
 
   var Product = Parse.Object.extends("Product");
 
@@ -47,6 +47,7 @@ function parsePriceList(priceListString)
 
   for (var i=0; i<pricesArray.length; ++i)
   {
+    console.log("i="+i);
     var item = pricesArray[i];
     console.log(item);
 
@@ -59,6 +60,7 @@ function parsePriceList(priceListString)
     productsArray.push(product);
   };
 
+  console.log("Loop done now save all");
   Parse.Object.saveAll(productsArray,
       {
         success: function(objs)
